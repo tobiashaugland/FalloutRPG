@@ -55,6 +55,6 @@ function rollDice(diceType, diceAmount) {
         const die = Math.floor(Math.random() * diceType) + 1;
         diceArray.push(die);
     }
-    //console.log(diceArray);
+    console.log(diceArray);
     return diceArray
 }
