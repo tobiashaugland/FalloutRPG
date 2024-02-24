@@ -22,11 +22,13 @@ body {
 }
 
 .main {
-    padding: 5rem 5rem;
+    padding: 3rem 2rem;
 }
 
 .dice-roller {
     padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
     &__container {
         /*display: flex;
         align-items: center;
@@ -50,18 +52,20 @@ body {
         min-width: 115px;
         height: 76px;
         cursor: pointer;
-        animation: colorPulse 3s infinite ease-in-out;
+        //animation: colorPulse 3s infinite ease-in-out;
         &:hover {
+            background: linear-gradient(-45deg, #0066b1 40%, #fafafa 50%, #0066b1 60%);
+            background-size: 300%;
+            background-position-x: 100%;
             border-color: #0066b1;
-            color: #0066b1;
-            background-color: #fdf55b;
+            animation: shimmer forwards 3.5s ease-in-out;
         }
     }
 }
 @media screen and (min-width: $lg) {
-     .dice-roller__container, .combat-dice-roller {
+    .dice-roller__container,
+    .combat-dice-roller {
         grid-template-columns: repeat(3, 1fr);
-        
     }
 }
 
@@ -70,15 +74,13 @@ body {
         width: 2.5rem;
         margin-left: 0.5rem;
     }
-    &-roller {
+    /* &-roller {
         display: grid;
         padding: 1rem 1.5rem;
         height: min-content;
         justify-content: center;
         align-items: center;
-        &__button {
-        }
-    }
+    } */
 }
 
 .d {
@@ -114,7 +116,7 @@ body {
         z-index: 1;
     }
 }
-@keyframes colorPulse {
+/* @keyframes colorPulse {
     0%,
     100% {
         color: #fff70093;
@@ -126,7 +128,7 @@ body {
         color: #090;
         color: #fffa91;
     }
-}
+} */
 
 @keyframes wave {
     0% {
@@ -148,9 +150,36 @@ body {
         top: 200vh;
     }
 }
-
+/* 
 @keyframes blink {
     50% {
         opacity: 0;
+    }
+} */
+
+@keyframes shimmer {
+    0% {
+        background-position-x: 100%;
+    }
+    10% {
+        color: #0067b100;
+        color: #fdf55b9b;
+    }
+
+    20% {
+        background-position-x: 0%;
+        color: #ffffff;
+        color: #ffffba;
+    }
+    28% {
+        //color: #fdf55b;
+    }
+    35% {
+        background: linear-gradient(#0066b1);
+    }
+    100% {
+        background: linear-gradient(#0066b1);
+        background-position-x: 0%;
+        color: #ffffae;
     }
 }

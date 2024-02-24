@@ -18,32 +18,22 @@
         </ul>
     </header>
     <main class="main p-8 screen" id="main">
-        <div class="d-flex justify-content">
-            <div class="dice-roller" id="dice-roller">
-                <!-- <div class="dice-result__container dice-result--d20__container">
-                    <strong>Test</strong>
-                </div> -->
-            </div>
-            <div class="combat-dice-roller">
-
-            </div>
+        <div class="dice-roller" id="dice-roller">
+            <p>Test</p>
         </div>
         <iframe src="./overseer_panel.html" id="myiframe"
-            style="width:100%; min-height:100%; border:none; margin-bottom: 100px; overflow: hidden;"
-            height="100%"></iframe>
-
-        <!-- <iframe src="https://null.perchance.org/fallout-loot-tables-generator" style="width:100%; min-height:1785px; border:none; overflow:hidden; transform:scale(1);"></iframe> -->
-
-        <iframe src="./random_rolls.html" style="width:100%; min-height:1785px; border:none; overflow:hidden; transform:scale(1);"></iframe>
+            style="width:100%; margin-bottom: 100px;">
+        </iframe>
+        <iframe src="./random_rolls.html"
+            style="width:100%; margin-bottom: 100px;">
+        </iframe>
     </main>
     <script>
         window.onload = function () {
             var iframes = document.querySelectorAll("iframe");
             iframes.forEach((iframe) => {
-                console.log(iframe.contentWindow.document.body.scrollHeight)
                 iframe.width = iframe.contentWindow.document.body.scrollWidth;
                 iframe.height = iframe.contentWindow.document.body.scrollHeight + 25;
-                console.log(iframe)
             })
         }
     </script>

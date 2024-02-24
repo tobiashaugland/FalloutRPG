@@ -4,10 +4,31 @@ createButtons(20)
 createButtons(6)
 
 createCombatDice()
-function createCombatDice() {
+
+function createButtons(diceType) {
+    const div = document.createElement("div");
+    div.classList.add("dice-roller__container", );
+    diceRoller.appendChild(div);
     for (let i = 1; i <= 6; i++) {
         const button = document.createElement("button");
-        button.classList.add("dice-roller__button", "combat-dice-roller__button");
+        button.classList.add("dice-roller__button", "shimmer");
+        button.textContent = `${i} d${diceType}`;
+        button.addEventListener("click", () => {
+            const diceResult = rollDice(diceType, i);
+            console.log(diceResult)
+        })
+        div.appendChild(button);
+    }
+
+}
+
+function createCombatDice() {
+    const div = document.createElement("div");
+    div.classList.add("dice-roller__container");
+    diceRoller.appendChild(div);
+    for (let i = 1; i <= 6; i++) {
+        const button = document.createElement("button");
+        button.classList.add("dice-roller__button", "combat-dice-roller__button", "shimmer");
         button.innerHTML = `${i} 
         <img class="combat-dice__img" src="./images/combat-dice.png">
         `
@@ -29,21 +50,7 @@ function createCombatDice() {
             }
 
         })
-        document.querySelector(".combat-dice-roller").appendChild(button);
-    }
-
-}
-function createButtons(diceType) {
-    const div = document.createElement("div");
-    div.classList.add("dice-roller__container");
-    diceRoller.appendChild(div);
-    for (let i = 1; i <= 6; i++) {
-        const button = document.createElement("button");
-        button.classList.add("dice-roller__button");
-        button.textContent = `${i} d${diceType}`;
-        button.addEventListener("click", () => {
-            rollDice(diceType, i);
-        })
+        //document.querySelector(".combat-dice-roller").appendChild(button);
         div.appendChild(button);
     }
 
@@ -55,6 +62,6 @@ function rollDice(diceType, diceAmount) {
         const die = Math.floor(Math.random() * diceType) + 1;
         diceArray.push(die);
     }
-    console.log(diceArray);
+    //console.log(diceArray);
     return diceArray
 }
