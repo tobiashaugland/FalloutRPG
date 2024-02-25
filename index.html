@@ -12,19 +12,20 @@
 
 <body>
     <header class="header">
-        <ul class="d-flex">
+        <ul class="">
             <li><a href="#dice-roller">Dice roller</a></li>
-            <li></li>
+            <li><a href="#loot-generator">Loot generator</a></li>
+            <li><a href="#overseer-panel">Overseer panel</a></li>
         </ul>
     </header>
     <main class="main" id="main">
         <div class="dice-roller p-8" id="dice-roller"></div>
-        <section class="screen">
-            <iframe src="./overseer_panel.html" style="width:100%; margin-bottom: 180px;">
+        <section>
+            <iframe src="./loot_generator.html" id="loot-generator" style="width:100%; margin-bottom: 180px;">
             </iframe>
         </section>
-        <section>
-            <iframe src="./random_rolls.html" style="width:100%; margin-bottom: 180px;">
+        <section class="screen">
+            <iframe src="./overseer_panel.html" id="overseer-panel" style="width:100%; margin-bottom: 180px;">
             </iframe>
         </section>
     </main>
@@ -32,7 +33,9 @@
         <p>Made by Tobias Haugland</p>
     </footer>
     <script>
-        window.onload = function () {
+        window.onload = sizeIframes;
+        window.addEventListener("resize", sizeIframes);
+        function sizeIframes() {
             var iframes = document.querySelectorAll("iframe");
             iframes.forEach((iframe) => {
                 iframe.width = iframe.contentWindow.document.body.scrollWidth;

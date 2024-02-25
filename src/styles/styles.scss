@@ -33,7 +33,7 @@ footer {
 
     &__button {
         background-color: #0066b1;
-        border: 2px solid #fdf55b;
+        border: 3px solid #fdf55b;
         margin: 0 5px 5px 0;
         padding: 1rem 1.5rem;
         font-size: 1.5rem;
@@ -42,9 +42,9 @@ footer {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 115px;
-        min-width: 115px;
-        max-width: 115px;
+        width: 125px;
+        min-width: 125px;
+        max-width: 125px;
         height: 76px;
         cursor: pointer;
         &:hover {
