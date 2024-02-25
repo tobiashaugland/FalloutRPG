@@ -16,27 +16,20 @@ body {
     background-color: #022460;
 }
 
-.header {
-    background-color: #00243e;
+.header,
+footer {
+    background-color: #fdf55b;
     padding: 2.5rem 5rem;
 }
 
 .main {
-    padding: 3rem 2rem;
+    padding: 3rem 0;
 }
 
 .dice-roller {
     padding: 1rem 1.5rem;
     display: flex;
-    justify-content: space-between;
-    &__container {
-        /*display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        justify-content: center;*/
-        margin-bottom: 80px;
-        display: grid;
-    }
+    justify-content: space-evenly;
 
     &__button {
         background-color: #0066b1;
@@ -49,10 +42,11 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
+        width: 115px;
         min-width: 115px;
+        max-width: 115px;
         height: 76px;
         cursor: pointer;
-        //animation: colorPulse 3s infinite ease-in-out;
         &:hover {
             background: linear-gradient(-45deg, #0066b1 40%, #fafafa 50%, #0066b1 60%);
             background-size: 300%;
@@ -60,27 +54,60 @@ body {
             border-color: #0066b1;
             animation: shimmer forwards 3.5s ease-in-out;
         }
+        &:active {
+            color: #ffffff !important;
+        }
+        &__container {
+            margin-bottom: 80px;
+            display: grid;
+        }
+    }
+    &__result {
+        text-align: center;
+        color: #fdf55b;
+        font-size: 30px;
+        margin-bottom: 20px;
+        min-height: 45px;
+        .combat-dice__img {
+            margin: 0;
+        }
     }
 }
-@media screen and (min-width: $lg) {
-    .dice-roller__container,
-    .combat-dice-roller {
+@media screen and (max-width: 850px) {
+    .dice-roller {
+        flex-direction: column;
+        align-items: center;
+    }
+    .dice-roller__button__container {
+        min-width: 100% !important;
+        width: 90vw !important;
+        justify-content: center;
+    }
+    .dice-roller__button {
+        min-width: 90vw;
+    }
+    /* 
+    .dice-roller__result{
+        font-size: 14px;
+    } */
+}
+@media screen and (min-width: 850px) {
+    .dice-roller__button__container {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 33vw;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .dice-roller__button__container {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-.combat-dice {
-    &__img {
-        width: 2.5rem;
-        margin-left: 0.5rem;
-    }
-    /* &-roller {
-        display: grid;
-        padding: 1rem 1.5rem;
-        height: min-content;
-        justify-content: center;
-        align-items: center;
-    } */
+.combat-dice__img {
+    width: 2.5rem;
+    margin-left: 0.5rem;
+    display: inline-block;
+    vertical-align: text-bottom;
 }
 
 .d {
@@ -106,7 +133,7 @@ body {
     font-family: "Share Tech Mono", monospace;
     font-size: 1.05em;
     &::before {
-        animation: wave 20s infinite ease-in-out;
+        animation: wave 18s infinite ease-in-out;
         content: "";
         height: 30px;
         left: 0;
@@ -116,19 +143,6 @@ body {
         z-index: 1;
     }
 }
-/* @keyframes colorPulse {
-    0%,
-    100% {
-        color: #fff70093;
-        color: #0c0;
-    }
-
-    40%,
-    70% {
-        color: #090;
-        color: #fffa91;
-    }
-} */
 
 @keyframes wave {
     0% {
@@ -150,12 +164,6 @@ body {
         top: 200vh;
     }
 }
-/* 
-@keyframes blink {
-    50% {
-        opacity: 0;
-    }
-} */
 
 @keyframes shimmer {
     0% {

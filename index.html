@@ -17,17 +17,20 @@
             <li></li>
         </ul>
     </header>
-    <main class="main p-8 screen" id="main">
-        <div class="dice-roller" id="dice-roller">
-            <p>Test</p>
-        </div>
-        <iframe src="./overseer_panel.html" id="myiframe"
-            style="width:100%; margin-bottom: 100px;">
-        </iframe>
-        <iframe src="./random_rolls.html"
-            style="width:100%; margin-bottom: 100px;">
-        </iframe>
+    <main class="main" id="main">
+        <div class="dice-roller p-8" id="dice-roller"></div>
+        <section class="screen">
+            <iframe src="./overseer_panel.html" style="width:100%; margin-bottom: 180px;">
+            </iframe>
+        </section>
+        <section>
+            <iframe src="./random_rolls.html" style="width:100%; margin-bottom: 180px;">
+            </iframe>
+        </section>
     </main>
+    <footer>
+        <p>Made by Tobias Haugland</p>
+    </footer>
     <script>
         window.onload = function () {
             var iframes = document.querySelectorAll("iframe");
