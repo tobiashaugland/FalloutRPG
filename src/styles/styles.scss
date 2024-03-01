@@ -14,6 +14,7 @@ $lg: 992px;
 }
 body {
     background-color: #022460;
+    background-color: #041635;
 }
 
 .header,
@@ -52,7 +53,7 @@ footer {
             background-size: 300%;
             background-position-x: 100%;
             border-color: #0066b1;
-            animation: shimmer forwards 3.5s ease-in-out;
+            animation: shimmer forwards 4s ease-in-out;
         }
         &:active {
             color: #ffffff !important;
@@ -186,7 +187,7 @@ footer {
         background: linear-gradient(#0066b1);
     }
     100% {
-        background: linear-gradient(#0066b1);
+        background: none #0066b1;
         background-position-x: 0%;
         color: #ffffae;
     }

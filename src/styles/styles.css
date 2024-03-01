@@ -4,13 +4,15 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-size: 16px;
   list-style-type: none;
 }
 
 body {
   background-color: #022460;
+  background-color: #041635;
 }
 
 .header,
@@ -25,9 +27,14 @@ footer {
 
 .dice-roller {
   padding: 1rem 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-evenly;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
+
 .dice-roller__button {
   background-color: #0066b1;
   border: 3px solid #fdf55b;
@@ -36,29 +43,41 @@ footer {
   font-size: 1.5rem;
   font-weight: 700;
   color: #fdf55b;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 125px;
   min-width: 125px;
   max-width: 125px;
   height: 76px;
   cursor: pointer;
 }
+
 .dice-roller__button:hover {
   background: linear-gradient(-45deg, #0066b1 40%, #fafafa 50%, #0066b1 60%);
   background-size: 300%;
   background-position-x: 100%;
   border-color: #0066b1;
-  animation: shimmer forwards 3.5s ease-in-out;
+  -webkit-animation: shimmer forwards 4s ease-in-out;
+          animation: shimmer forwards 4s ease-in-out;
 }
+
 .dice-roller__button:active {
   color: #ffffff !important;
 }
+
 .dice-roller__button__container {
   margin-bottom: 80px;
+  display: -ms-grid;
   display: grid;
 }
+
 .dice-roller__result {
   text-align: center;
   color: #fdf55b;
@@ -66,39 +85,52 @@ footer {
   margin-bottom: 20px;
   min-height: 45px;
 }
+
 .dice-roller__result .combat-dice__img {
   margin: 0;
 }
 
 @media screen and (max-width: 850px) {
   .dice-roller {
-    flex-direction: column;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   .dice-roller__button__container {
     min-width: 100% !important;
     width: 90vw !important;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   .dice-roller__button {
     min-width: 90vw;
   }
   /* 
-  .dice-roller__result{
-      font-size: 14px;
-  } */
+    .dice-roller__result{
+        font-size: 14px;
+    } */
 }
+
 @media screen and (min-width: 850px) {
   .dice-roller__button__container {
-    grid-template-columns: repeat(2, 1fr);
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
     max-width: 33vw;
   }
 }
+
 @media screen and (min-width: 1200px) {
   .dice-roller__button__container {
-    grid-template-columns: repeat(3, 1fr);
+    -ms-grid-columns: (1fr)[3];
+        grid-template-columns: repeat(3, 1fr);
   }
 }
+
 .combat-dice__img {
   width: 2.5rem;
   margin-left: 0.5rem;
@@ -107,27 +139,36 @@ footer {
 }
 
 .d-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
+
 .d-none {
   display: none;
 }
 
 .justify-content-center {
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .screen {
-  animation: colorPulse 5s infinite ease-in-out;
+  -webkit-animation: colorPulse 5s infinite ease-in-out;
+          animation: colorPulse 5s infinite ease-in-out;
   background-image: radial-gradient(#195328, #000904);
-  box-shadow: 0 0 5vmin 1vmin #000 inset;
+  -webkit-box-shadow: 0 0 5vmin 1vmin #000 inset;
+          box-shadow: 0 0 5vmin 1vmin #000 inset;
   width: 100%;
   height: 100%;
   font-family: "Share Tech Mono", monospace;
   font-size: 1.05em;
 }
+
 .screen::before {
-  animation: wave 18s infinite ease-in-out;
+  -webkit-animation: wave 18s infinite ease-in-out;
+          animation: wave 18s infinite ease-in-out;
   content: "";
   height: 30px;
   left: 0;
@@ -137,41 +178,99 @@ footer {
   z-index: 1;
 }
 
-@keyframes wave {
+@-webkit-keyframes wave {
   0% {
-    box-shadow: 0 -10vh 20vh #0c0;
+    -webkit-box-shadow: 0 -10vh 20vh #0c0;
+            box-shadow: 0 -10vh 20vh #0c0;
     top: -100vh;
   }
-  48%, 52% {
-    box-shadow: 0 -10vh 20vh #090;
+  48%,
+  52% {
+    -webkit-box-shadow: 0 -10vh 20vh #090;
+            box-shadow: 0 -10vh 20vh #090;
   }
   50% {
-    box-shadow: 0 -10vh 20vh #060;
+    -webkit-box-shadow: 0 -10vh 20vh #060;
+            box-shadow: 0 -10vh 20vh #060;
   }
   100% {
-    box-shadow: 0 -10vh 20vh #0c0;
+    -webkit-box-shadow: 0 -10vh 20vh #0c0;
+            box-shadow: 0 -10vh 20vh #0c0;
     top: 200vh;
   }
 }
-@keyframes shimmer {
+
+@keyframes wave {
+  0% {
+    -webkit-box-shadow: 0 -10vh 20vh #0c0;
+            box-shadow: 0 -10vh 20vh #0c0;
+    top: -100vh;
+  }
+  48%,
+  52% {
+    -webkit-box-shadow: 0 -10vh 20vh #090;
+            box-shadow: 0 -10vh 20vh #090;
+  }
+  50% {
+    -webkit-box-shadow: 0 -10vh 20vh #060;
+            box-shadow: 0 -10vh 20vh #060;
+  }
+  100% {
+    -webkit-box-shadow: 0 -10vh 20vh #0c0;
+            box-shadow: 0 -10vh 20vh #0c0;
+    top: 200vh;
+  }
+}
+
+@-webkit-keyframes shimmer {
   0% {
     background-position-x: 100%;
   }
   10% {
-    color: rgba(0, 103, 177, 0);
-    color: rgba(253, 245, 91, 0.6078431373);
+    color: #0067b100;
+    color: #fdf55b9b;
   }
   20% {
     background-position-x: 0%;
     color: #ffffff;
     color: #ffffba;
   }
+  28% {
+  }
   35% {
+    background: -webkit-gradient(linear, left top, left bottom, from(#0066b1));
     background: linear-gradient(#0066b1);
   }
   100% {
-    background: linear-gradient(#0066b1);
+    background: none #0066b1;
     background-position-x: 0%;
     color: #ffffae;
   }
-}/*# sourceMappingURL=styles.css.map */
+}
+
+@keyframes shimmer {
+  0% {
+    background-position-x: 100%;
+  }
+  10% {
+    color: #0067b100;
+    color: #fdf55b9b;
+  }
+  20% {
+    background-position-x: 0%;
+    color: #ffffff;
+    color: #ffffba;
+  }
+  28% {
+  }
+  35% {
+    background: -webkit-gradient(linear, left top, left bottom, from(#0066b1));
+    background: linear-gradient(#0066b1);
+  }
+  100% {
+    background: none #0066b1;
+    background-position-x: 0%;
+    color: #ffffae;
+  }
+}
+/*# sourceMappingURL=styles.css.map */
