@@ -13,7 +13,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Jost&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 
-        .screen {
+        /* .screen {
             color: #0c0;
             overflow: hidden;
             width: 100%;
@@ -26,7 +26,7 @@
             font-size: 0.7em;
         }
 
-        /* .screen:before {
+         .screen:before {
             content: "";
             height: 20vh;
             left: 0;
@@ -45,8 +45,46 @@
             right: 0;
             top: 0;
             z-index: 2;
+        } */
+        .screen {
+            color: #0c0;
+            background-image: radial-gradient(#195328, #000904);
+            overflow: hidden;
+            width: 100%;
+            min-height: 100%;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.05em;
         }
- */
+
+        .smtext {
+            font-size: 0.7em;
+        }
+
+        .screen:before {
+            animation: wave 20s infinite ease-in-out;
+            content: "";
+            height: 10vh;
+            left: 0;
+            opacity: .5;
+            position: fixed;
+            right: 0;
+            z-index: 1;
+        }
+
+        .screen:after {
+            /* background-image: linear-gradient(transparent, transparent 3px, #222); */
+            background-image: linear-gradient(transparent, transparent 5px, #0000001f);
+            background-size: 4px 6px;
+            bottom: 0;
+            content: "";
+            left: 0;
+            pointer-events: none;
+            position: fixed;
+            right: 0;
+            top: 0;
+            z-index: 2;
+        }
+
         select {
             border: 2px solid #0d0;
             background-color: transparent;
@@ -169,7 +207,6 @@
         .grid-item {
             border: 2px solid #009a00;
             border-radius: 15px;
-            overflow-y: scroll;
             padding: 8px;
             width: 100%;
         }
@@ -389,6 +426,10 @@
                         <p id="RandQuestType"></p>
                     </b>
                     <p id="RandQuest"></p>
+                    <p id="questtarget"></p>
+                    <p id="questtownname2"></p>
+                    <p id="questtownname1"></p>
+                    <!-- <p id="questgiver"></p> -->
                 </div>
             </div>
         </div>

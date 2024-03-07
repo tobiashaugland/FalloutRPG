@@ -54,6 +54,7 @@ footer {
             background-position-x: 100%;
             border-color: #0066b1;
             animation: shimmer forwards 4s ease-in-out;
+            animation: shimmer forwards 3s linear;
         }
         &:active {
             color: #ffffff !important;
@@ -87,10 +88,7 @@ footer {
     .dice-roller__button {
         min-width: 90vw;
     }
-    /* 
-    .dice-roller__result{
-        font-size: 14px;
-    } */
+
 }
 @media screen and (min-width: 850px) {
     .dice-roller__button__container {
@@ -171,24 +169,21 @@ footer {
         background-position-x: 100%;
     }
     10% {
-        color: #0067b100;
         color: #fdf55b9b;
     }
 
     20% {
-        background-position-x: 0%;
-        color: #ffffff;
+        background-position-x: -10%;
         color: #ffffba;
     }
-    28% {
-        //color: #fdf55b;
-    }
-    35% {
-        background: linear-gradient(#0066b1);
+
+    40% {
+        /* background: none #0066b1;
+        background: linear-gradient(#0066b1); */
     }
     100% {
-        background: none #0066b1;
-        background-position-x: 0%;
+        /* background: linear-gradient(#0066b1); */
+        background-position-x: -10%;
         color: #ffffae;
     }
 }
