@@ -5,6 +5,8 @@
 $black: #070707;
 $lg: 992px;
 
+@import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
+
 * {
     padding: 0;
     margin: 0;
@@ -15,6 +17,19 @@ $lg: 992px;
 body {
     background-color: #022460;
     background-color: #041635;
+    font-family: "Share Tech Mono";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+b,
+strong {
+    color: #fdf55b;
 }
 
 .header,
@@ -30,7 +45,16 @@ footer {
 .dice-roller {
     padding: 1rem 1.5rem;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    //mw975
+    flex-direction: column;
+    align-items: center;
+    //mw975
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
     &__button {
         background-color: #0066b1;
@@ -57,11 +81,16 @@ footer {
             animation: shimmer forwards 3s linear;
         }
         &:active {
-            color: #ffffff !important;
+            border-color: #0066b1 !important;
+            color: #0066b1 !important;
+            background: none #fdf55b !important;
         }
         &__container {
-            margin-bottom: 80px;
+            margin-bottom: 40px;
             display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            //mw975
+            justify-content: center;
         }
     }
     &__result {
@@ -75,28 +104,107 @@ footer {
         }
     }
 }
-@media screen and (max-width: 850px) {
-    .dice-roller {
+
+.hit-location {
+    &-roller {
+        display: flex;
         flex-direction: column;
         align-items: center;
+        margin-bottom: 80px;
+        padding: 1rem 1.5rem;
     }
-    .dice-roller__button__container {
-        min-width: 100% !important;
-        width: 90vw !important;
+    &__btn {
+        background-color: #0066b1;
+        border: 3px solid #fdf55b;
+        padding: 1rem 1.5rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #fdf55b;
+        display: flex;
+        align-items: center;
         justify-content: center;
+        cursor: pointer;
+        margin-bottom: 15px;
+        &:hover {
+            border-color: #0066b1;
+            color: #fff;
+        }
+        &:active {
+            border-color: #0066b1;
+            color: #0066b1;
+            background-color: #fdf55b;
+        }
+        &__container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
     }
-    .dice-roller__button {
-        min-width: 90vw;
+    &__result {
+        text-align: center;
+        color: #fdf55b;
+        font-size: 36px;
+        margin-bottom: 20px;
+        font-weight: 600;
     }
+}
 
-}
-@media screen and (min-width: 850px) {
-    .dice-roller__button__container {
-        grid-template-columns: repeat(2, 1fr);
-        max-width: 33vw;
+@media screen and (min-width: 750px) {
+    .dice-roller {
+        &__container {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            width: 100%;
+        }
+        &__button__container {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+    .hit-location {
+        &-roller {
+            flex-direction: row;
+            width: 100%;
+        }
+        &__btn {
+            margin-right: 50px;
+        }
+        &__result {
+            align-self: flex-start;
+            margin-top: 10px;
+        }
     }
 }
-@media screen and (min-width: 1200px) {
+
+@media screen and (min-width: 975px) {
+    .dice-roller {
+        flex-direction: row;
+        &__container {
+            flex-direction: column;
+            width: auto;
+        }
+        &__button__container {
+            max-width: 33vw;
+            margin-left: 30px;
+            margin-right: 30px;
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    .hit-location {
+        &-roller {
+            flex-direction: column;
+            width: auto;
+        }
+        &__btn {
+            margin-right: 0;
+        }
+        &__result{
+            align-self:center
+        }
+    }
+}
+
+@media screen and (min-width: 1345px) {
     .dice-roller__button__container {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -107,6 +215,24 @@ footer {
     margin-left: 0.5rem;
     display: inline-block;
     vertical-align: text-bottom;
+}
+
+.mr-handy {
+    color: #fdf55b;
+    font-size: 16px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  width: 3ch;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 .d {
@@ -122,6 +248,10 @@ footer {
     &-center {
         justify-content: center;
     }
+}
+
+.color-white {
+    color: #fff;
 }
 .screen {
     animation: colorPulse 5s infinite ease-in-out;
@@ -143,7 +273,7 @@ footer {
     }
 }
 
-@keyframes wave {
+/* @keyframes wave {
     0% {
         box-shadow: 0 -10vh 20vh #0c0;
         top: -100vh;
@@ -162,7 +292,7 @@ footer {
         box-shadow: 0 -10vh 20vh #0c0;
         top: 200vh;
     }
-}
+} */
 
 @keyframes shimmer {
     0% {
@@ -176,13 +306,7 @@ footer {
         background-position-x: -10%;
         color: #ffffba;
     }
-
-    40% {
-        /* background: none #0066b1;
-        background: linear-gradient(#0066b1); */
-    }
     100% {
-        /* background: linear-gradient(#0066b1); */
         background-position-x: -10%;
         color: #ffffae;
     }

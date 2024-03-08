@@ -17,9 +17,24 @@
             <li><a href="#loot-generator">Loot generator</a></li>
             <li><a href="#overseer-panel">Overseer panel</a></li>
         </ul>
+        <div class="ap-tracker">
+            <button>+</button>
+            <input type="number">
+            <button>-</button>
+        </div>
     </header>
     <main class="main" id="main">
-        <div class="dice-roller p-8" id="dice-roller"></div>
+        <section class="dice-roller" id="dice-roller"></section>
+        <section class="hit-location-roller">
+            <div class="hit-location__btn__container">
+                <button class="hit-location__btn">Roll hit location</button>
+                <label class="mr-handy mb-8">
+                    <input type="checkbox" id="mr-handy">
+                    Mr. Handy?
+                </label>
+            </div>
+            <p class="hit-location__result">Hit location</p>
+        </section>
         <section>
             <iframe src="./loot_generator.html" id="loot-generator" style="width:100%; margin-bottom: 180px;">
             </iframe>
@@ -38,7 +53,7 @@
         function sizeIframes() {
             var iframes = document.querySelectorAll("iframe");
             iframes.forEach((iframe) => {
-                iframe.width = iframe.contentWindow.document.body.scrollWidth;
+                //iframe.width = iframe.contentWindow.document.body.scrollWidth;
                 iframe.height = iframe.contentWindow.document.body.scrollHeight + 25;
             })
         }

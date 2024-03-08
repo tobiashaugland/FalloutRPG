@@ -26,6 +26,10 @@ function createButtons(diceType) {
                 styledDiceResult.push(" " + res)
             })
             p.innerHTML = styledDiceResult;
+            p.classList.add("color-white");
+            setTimeout(() => {
+                p.classList.remove("color-white");
+            }, 75);
         });
         div.appendChild(button);
     }
@@ -72,6 +76,10 @@ function createCombatDice() {
                 }
                 console.log(`${dmg} damage + ${effects}`)
                 p.innerHTML = `${dmg} damage ${effects > 0 ? '+ ' + effects + '<img class="combat-dice__img" src="./images/combat-dice.png">' : ""}`;
+                p.classList.add("color-white");
+                setTimeout(() => {
+                    p.classList.remove("color-white");
+                }, 75);
             }
 
         })
@@ -89,4 +97,37 @@ function rollDice(diceType, diceAmount) {
     }
     //console.log(diceArray);
     return diceArray
+}
+rollHitLocation();
+function rollHitLocation() {
+    document.querySelector(".hit-location__btn").addEventListener("click", () => {
+        const mrHandy = document.querySelector("#mr-handy").checked;
+        const p = document.querySelector(".hit-location__result");
+        const diceRoll = rollDice(20, 1);
+        let hitLocation = "";
+        if (diceRoll <= 2) {
+            hitLocation = mrHandy ? "Eyes" : "Head";
+        }
+        else if (diceRoll <= 8) {
+            hitLocation = mrHandy ? "Body" : "Torso";
+        }
+        else if (diceRoll <= 11) {
+            hitLocation = mrHandy ? "Arm 1" : "Right arm";
+        }
+        else if (diceRoll <= 14) {
+            hitLocation = mrHandy ? "Arm 2" : "Left arm";
+        }
+        else if (diceRoll <= 17) {
+            hitLocation = mrHandy ? "Arm 3" : "Right leg";
+        }
+        else if (diceRoll <= 20) {
+            hitLocation = mrHandy ? "Thruster" : "Left leg";
+        }
+        console.log(hitLocation, diceRoll);
+        p.innerHTML = hitLocation;
+        p.classList.add("color-white");
+        setTimeout(() => {
+            p.classList.remove("color-white");
+        }, 75);
+    });
 }
