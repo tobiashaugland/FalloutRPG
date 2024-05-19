@@ -3,7 +3,9 @@
 @import "tailwindcss/utilities"; */
 
 $black: #070707;
-$lg: 992px;
+$lg: 975px;
+$xl: 1345px;
+$yellow: #fdf55b;
 
 @import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
 
@@ -29,13 +31,13 @@ h6,
 p,
 b,
 strong {
-    color: #fdf55b;
+    color: $yellow;
 }
 
 .header,
 footer {
-    background-color: #fdf55b;
-    padding: 2.5rem 5rem;
+    background-color: #fcf234;
+    padding: 1.5rem 2rem;
 }
 
 .main {
@@ -46,10 +48,8 @@ footer {
     padding: 1rem 1.5rem;
     display: flex;
     justify-content: center;
-    //mw975
     flex-direction: column;
     align-items: center;
-    //mw975
     &__container {
         display: flex;
         flex-direction: column;
@@ -58,12 +58,12 @@ footer {
 
     &__button {
         background-color: #0066b1;
-        border: 3px solid #fdf55b;
+        border: 3px solid $yellow;
         margin: 0 5px 5px 0;
         padding: 1rem 1.5rem;
         font-size: 1.5rem;
         font-weight: 700;
-        color: #fdf55b;
+        color: $yellow;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -83,22 +83,83 @@ footer {
         &:active {
             border-color: #0066b1 !important;
             color: #0066b1 !important;
-            background: none #fdf55b !important;
+            background: none $yellow !important;
         }
         &__container {
             margin-bottom: 40px;
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            //mw975
+            grid-template-columns: repeat(2, minmax(15px, 1fr));
             justify-content: center;
+        }
+        &--custom {
+            width: 255px;
+            justify-content: space-around;
+            padding: 0;
+            background-color: #0066b1;
+            border: 3px solid $yellow;
+            font-weight: 700;
+            color: $yellow;
+            display: flex;
+            align-items: center;
+            height: 76px;
+            pointer-events: none;
+            grid-column: span 2;
+            margin: 5px 5px 5px 0;
+
+            &:hover:not(:has(&-input:hover)) {
+                border-color: #0066b1;
+
+                background: linear-gradient(-45deg, #0066b1 40%, #fafafa 50%, #0066b1 60%);
+                background-size: 300%;
+                background-position-x: 100%;
+                border-color: #0066b1;
+                animation: shimmer forwards 4s linear;
+            }
+
+            &:active:not(:has(&-input:active)) {
+                background: none $yellow !important;
+                border-color: #0066b1 !important;
+                color: #0066b1 !important;
+            }
+
+            &-input {
+                max-width: 50%;
+                width: 40%;
+                margin-left: 1rem;
+                pointer-events: initial;
+                color: #000;
+                padding: 0.2rem 0.5rem;
+                text-align: center;
+            }
+            &-btn {
+                width: 100%;
+                height: 100%;
+                pointer-events: auto;
+
+                background-color: transparent;
+
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: $yellow;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                
+                &:active {
+                    background: none $yellow !important;
+                    border-color: #0066b1 !important;
+                    color: #0066b1 !important;
+                }
+            }
         }
     }
     &__result {
         text-align: center;
-        color: #fdf55b;
+        color: $yellow;
         font-size: 30px;
         margin-bottom: 20px;
-        min-height: 45px;
+        min-height: 46px;
+        word-break: break-word;
         .combat-dice__img {
             margin: 0;
         }
@@ -115,11 +176,11 @@ footer {
     }
     &__btn {
         background-color: #0066b1;
-        border: 3px solid #fdf55b;
+        border: 3px solid $yellow;
         padding: 1rem 1.5rem;
         font-size: 1.5rem;
         font-weight: 700;
-        color: #fdf55b;
+        color: $yellow;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -132,7 +193,7 @@ footer {
         &:active {
             border-color: #0066b1;
             color: #0066b1;
-            background-color: #fdf55b;
+            background-color: $yellow;
         }
         &__container {
             display: flex;
@@ -142,71 +203,125 @@ footer {
     }
     &__result {
         text-align: center;
-        color: #fdf55b;
+        color: $yellow;
         font-size: 36px;
         margin-bottom: 20px;
         font-weight: 600;
     }
 }
 
-@media screen and (min-width: 750px) {
-    .dice-roller {
-        &__container {
-            display: flex;
-            flex-direction: row-reverse;
-            justify-content: space-between;
-            width: 100%;
-        }
-        &__button__container {
-            grid-template-columns: repeat(3, 1fr);
+.ap-tracker {
+    &__input {
+        margin: 0;
+        width: 5ch;
+        padding: 0 0.5rem;
+        border-radius: 5px;
+        text-align: center;
+        margin: 0 0.5rem;
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            display: none;
         }
     }
-    .hit-location {
-        &-roller {
-            flex-direction: row;
-            width: 100%;
+    &__btn {
+        border-radius: 50px;
+        background-color: #fff;
+        width: 1.5rem;
+        height: 1.5rem;
+        font-size: 1.8rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #0066b1;
+        color: #ffffff;
+
+        &:hover {
+            color: #0066b1;
+            border: #0066b1 2px solid;
+            background-color: #ffffff;
         }
-        &__btn {
-            margin-right: 50px;
-        }
-        &__result {
-            align-self: flex-start;
-            margin-top: 10px;
+        &:active {
+            color: #fcf234;
+            background-color: #0066b1;
         }
     }
 }
-
-@media screen and (min-width: 975px) {
-    .dice-roller {
-        flex-direction: row;
-        &__container {
-            flex-direction: column;
-            width: auto;
-        }
-        &__button__container {
-            max-width: 33vw;
-            margin-left: 30px;
-            margin-right: 30px;
-            grid-template-columns: repeat(2, 1fr);
-        }
+.btn {
+    background-color: #0066b1;
+    border: 3px solid $yellow;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: $yellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    &:hover {
+        border-color: #0066b1;
+        color: #fff;
     }
-    .hit-location {
-        &-roller {
-            flex-direction: column;
-            width: auto;
-        }
-        &__btn {
-            margin-right: 0;
-        }
-        &__result{
-            align-self:center
-        }
+    &:active {
+        border-color: #0066b1;
+        color: #0066b1;
+        background-color: $yellow;
     }
 }
 
-@media screen and (min-width: 1345px) {
-    .dice-roller__button__container {
-        grid-template-columns: repeat(3, 1fr);
+.initiative__tracker {
+    margin-bottom: 80px;
+    &__container {
+        padding: 1rem 1.5rem;
+        gap: 1rem;
+        background-color: #022460;
+        margin-bottom: 50px;
+        &--new {
+            border-top: $yellow 1px solid;
+            margin-bottom: 0;
+            &:nth-child(odd){
+                background-color: #022f7e;
+            }
+            &:last-child {
+                border-bottom: $yellow 1px solid;
+            }
+        }
+    }
+    &--btn {
+        margin-top: 1rem;
+        height: 50%;
+        align-self: flex-end;
+
+        &-up,
+        &-down,
+        &-delete {
+            padding: 0.5rem !important;
+        }
+        &-delete {
+            margin-left: 2rem;
+            border-color: #fff;
+            color: #fff;
+            background-color: red;
+
+            &:hover {
+                color: #111;
+                border-color: #111;
+                background-color: red;
+            }
+        }
+    }
+    &__label {
+        color: $yellow;
+        font-size: 18px;
+        &--hp,
+        &--initiative {
+            width: 7rem;
+        }
+    }
+    &__input {
+        margin-top: 0.5rem;
+        color: #000 !important;
+        padding: 0.5rem;
     }
 }
 
@@ -218,21 +333,8 @@ footer {
 }
 
 .mr-handy {
-    color: #fdf55b;
+    color: $yellow;
     font-size: 16px;
-}
-
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-  width: 3ch;
-}
-
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
 }
 
 .d {
@@ -242,16 +344,71 @@ input[type=number] {
     &-none {
         display: none;
     }
+    &-block {
+        display: block;
+    }
+    &-inline {
+        display: inline;
+    }
+    &-inline-block {
+        display: inline-block;
+    }
+}
+
+.flex {
+    &-column {
+        flex-direction: column;
+    }
 }
 
 .justify-content {
     &-center {
         justify-content: center;
     }
+    &-between {
+        justify-content: space-between;
+    }
 }
-
+.align-items {
+    &-center {
+        align-items: center;
+    }
+}
 .color-white {
     color: #fff;
+}
+.text {
+    &-center {
+        text-align: center;
+    }
+}
+.font {
+    &-weight {
+        &--400 {
+            font-weight: 400;
+        }
+        &--500 {
+            font-weight: 500;
+        }
+        &--600 {
+            font-weight: 600;
+        }
+    }
+
+    &-size {
+        &--16 {
+            font-size: 16px;
+        }
+        &--18 {
+            font-size: 18px;
+        }
+        &--20 {
+            font-size: 20px;
+        }
+        &--48 {
+            font-size: 48px;
+        }
+    }
 }
 .screen {
     animation: colorPulse 5s infinite ease-in-out;
@@ -273,33 +430,87 @@ input[type=number] {
     }
 }
 
-/* @keyframes wave {
-    0% {
-        box-shadow: 0 -10vh 20vh #0c0;
-        top: -100vh;
+/* @media screen and (min-width: 750px) {
+    .dice-roller {
+        &__container {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            width: 100%;
+        }
+        &__button {
+            &__container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            &--custom {
+                width: auto;
+                grid-column: span 3;
+            }
+        }
     }
-
-    48%,
-    52% {
-        box-shadow: 0 -10vh 20vh #090;
-    }
-
-    50% {
-        box-shadow: 0 -10vh 20vh #060;
-    }
-
-    100% {
-        box-shadow: 0 -10vh 20vh #0c0;
-        top: 200vh;
+    .hit-location {
+        &-roller {
+            flex-direction: row;
+            width: 100%;
+        }
+        &__btn {
+            margin-right: 50px;
+        }
+        &__result {
+            align-self: flex-start;
+            margin-top: 10px;
+        }
     }
 } */
+
+@media screen and (min-width: $lg) {
+    .dice-roller {
+        flex-direction: row;
+        &__container {
+            flex-direction: column;
+            width: auto;
+        }
+        &__button {
+            &__container {
+                max-width: 33vw;
+                margin-left: 30px;
+                margin-right: 30px;
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    }
+    .hit-location {
+        &-roller {
+            flex-direction: column;
+            width: auto;
+        }
+        &__btn {
+            margin-right: 0;
+        }
+        &__result {
+            align-self: center;
+        }
+    }
+}
+
+@media screen and (min-width: $xl) {
+    .dice-roller__button {
+        &__container {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        &--custom {
+            width: auto;
+            grid-column: span 3;
+        }
+    }
+}
 
 @keyframes shimmer {
     0% {
         background-position-x: 100%;
     }
     10% {
-        color: #fdf55b9b;
+        color: $yellow 9b;
     }
 
     20% {
